@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AB1230911B087F5300EED3C9 /* RadioCollapsedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1230901B087F5300EED3C9 /* RadioCollapsedCell.swift */; };
-		AB1230931B0887F600EED3C9 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AB1230921B0887F600EED3C9 /* README.md */; };
 		AB1BA0661B085957004D0488 /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1BA0651B085957004D0488 /* RadioCell.swift */; };
 		AB2857441B0318F400716040 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2857421B0318F400716040 /* Alamofire.framework */; };
 		AB2857451B0318F400716040 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2857431B0318F400716040 /* OAuthSwift.framework */; };
@@ -17,6 +16,7 @@
 		AB28574C1B032AB700716040 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB28574B1B032AB700716040 /* BusinessCell.swift */; };
 		AB28574E1B032DE600716040 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB28574D1B032DE600716040 /* Haneke.framework */; };
 		AB4106131B08999C00D8AB7D /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4106121B08999C00D8AB7D /* LoadingCell.swift */; };
+		AB5A58791B09B16000243651 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AB5A58781B09B16000243651 /* README.md */; };
 		AB9AFE921B05BA460012FAB6 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AFE911B05BA450012FAB6 /* SwitchCell.swift */; };
 		AB9AFE941B05BB240012FAB6 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AFE931B05BB240012FAB6 /* FiltersViewController.swift */; };
 		AB9AFE961B05C2560012FAB6 /* YelpSearchFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AFE951B05C2560012FAB6 /* YelpSearchFilters.swift */; };
@@ -41,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		AB1230901B087F5300EED3C9 /* RadioCollapsedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioCollapsedCell.swift; sourceTree = "<group>"; };
-		AB1230921B0887F600EED3C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AB1BA0651B085957004D0488 /* RadioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
 		AB2857421B0318F400716040 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		AB2857431B0318F400716040 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		AB28574D1B032DE600716040 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
 		AB4106121B08999C00D8AB7D /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		AB5A58761B09ABB600243651 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
+		AB5A58781B09B16000243651 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AB9AFE911B05BA450012FAB6 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		AB9AFE931B05BB240012FAB6 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		AB9AFE951B05C2560012FAB6 /* YelpSearchFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpSearchFilters.swift; sourceTree = "<group>"; };
@@ -93,6 +93,7 @@
 		ABB000411B01539600FE24F2 = {
 			isa = PBXGroup;
 			children = (
+				AB5A58781B09B16000243651 /* README.md */,
 				AB5A58761B09ABB600243651 /* demo.gif */,
 				ABED75D41B08916C00E976D1 /* .gitignore */,
 				AB28574D1B032DE600716040 /* Haneke.framework */,
@@ -131,7 +132,6 @@
 				AB9AFE951B05C2560012FAB6 /* YelpSearchFilters.swift */,
 				AB1BA0651B085957004D0488 /* RadioCell.swift */,
 				AB1230901B087F5300EED3C9 /* RadioCollapsedCell.swift */,
-				AB1230921B0887F600EED3C9 /* README.md */,
 				ABED75D21B088FD700E976D1 /* secrets.plist */,
 				AB4106121B08999C00D8AB7D /* LoadingCell.swift */,
 			);
@@ -289,8 +289,8 @@
 				AB9AFE941B05BB240012FAB6 /* FiltersViewController.swift in Sources */,
 				ABB000701B01552700FE24F2 /* YelpClient.swift in Sources */,
 				AB9AFE961B05C2560012FAB6 /* YelpSearchFilters.swift in Sources */,
-				AB1230931B0887F600EED3C9 /* README.md in Sources */,
 				AB4106131B08999C00D8AB7D /* LoadingCell.swift in Sources */,
+				AB5A58791B09B16000243651 /* README.md in Sources */,
 				AB28574A1B03261C00716040 /* BusinessViewController.swift in Sources */,
 				AB1BA0661B085957004D0488 /* RadioCell.swift in Sources */,
 				ABB000501B01539600FE24F2 /* AppDelegate.swift in Sources */,
