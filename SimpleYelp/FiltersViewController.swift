@@ -16,11 +16,14 @@ protocol FiltersViewControllerDelegate: class {
 class FiltersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SwitchCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var isDistanceCollapsed = true
-    var isSortByCollapsed = true
-    var isCategoryCollapsed = true
-    
-    let categoriesWhileCollapsed = 3
+
+    private var isDistanceCollapsed = true
+    private var isSortByCollapsed = true
+    private var isCategoryCollapsed = true
+    private let categoriesWhileCollapsed = 3
+
+    var filters: YelpSearchFilters!
+    weak var delegate: FiltersViewControllerDelegate?
     
     private enum FilterSection: Int {
         case Deal = 0
@@ -49,9 +52,6 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    weak var delegate: FiltersViewControllerDelegate?
-    var filters: YelpSearchFilters!
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

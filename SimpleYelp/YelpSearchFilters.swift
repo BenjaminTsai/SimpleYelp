@@ -118,8 +118,8 @@ enum FilterSort: Int {
 
 class YelpSearchFilters {
     var searchString: String? = "Taiwanese"
-    let latitudeValue = 37.785771
-    let longitudeValue = -122.406165
+    private let latitudeValue = 37.785771
+    private let longitudeValue = -122.406165
     
     private var deal = false
     private var categories: [[String:String]]!

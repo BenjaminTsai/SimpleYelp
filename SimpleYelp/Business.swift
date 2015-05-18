@@ -18,14 +18,9 @@ class Business: NSObject, MKAnnotation {
     let ratingImageURL: NSURL?
     let reviewCount: NSNumber?
     
-    
-    // Center latitude and longitude of the annotation view.
-    // The implementation of this property must be KVO compliant.
+    // Map properties
     var coordinate: CLLocationCoordinate2D
-    
-//    // Title and subtitle for use by selection UI.
     var title: String!
-//    optional var subtitle: String! { get }
     
     init(dictionary: NSDictionary) {
         name = dictionary["name"] as? String

@@ -2,7 +2,7 @@
 
 This is a Yelp search app using the [Yelp API](https://www.yelp.com/developers/documentation).
 
-Time spent: `<Number of hours spent>`
+Time spent: `13.5`
 
 ## Features
 
@@ -32,7 +32,16 @@ Time spent: `<Number of hours spent>`
 
 ## Walkthrough
 
-![Video Walkthrough](...)
+![Video Walkthrough](demo.gif)
 
-https://thenounproject.com/term/arrow-down/11584/
-Partly adapted from ios swift yelp framework
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+Credits
+---------
+* [Yelp API](https://www.yelp.com/developers/documentation)
+* [Carthage](https://github.com/Carthage/Carthage)
+* [OAuthSwift](https://github.com/dongri/OAuthSwift)
+* [Alamofire](https://github.com/Alamofire/Alamofire)
+* [NounProject](https://thenounproject.com/)
+   * [Arrow-Down Icon](https://thenounproject.com/term/arrow-down/11584/)
+* [Codepath ios_yelp_swift](https://github.com/codepath/ios_yelp_swift)

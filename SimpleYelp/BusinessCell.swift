@@ -65,10 +65,9 @@ class BusinessCell: UITableViewCell {
     }
 
     // Rolling my own as Haneke seems to have some bugs
-    func loadImage(fromUrl url: NSURL, forImage image: UIImageView) {
+    private func loadImage(fromUrl url: NSURL, forImage image: UIImageView) {
         Alamofire.request(.GET, url, parameters: nil).response { (request, response, data, error) in
             image.image = UIImage(data: data! as! NSData)
         }
     }
-
 }

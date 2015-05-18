@@ -13,21 +13,11 @@ class RadioCell: UITableViewCell {
     @IBOutlet weak var radioLabel: UILabel!
     @IBOutlet weak var checkboxImage: UIImageView!
     
-    var radioGroupName: String?
+    private var radioGroupName: String?
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSLog("Deinit")
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setRadioGroup(name: String) {
@@ -37,7 +27,7 @@ class RadioCell: UITableViewCell {
         }
         radioGroupName = name
         
-        // [unowned self] before usingBlock giving problems
+        // [unowned self] before usingBlock giving problems, why?
         NSNotificationCenter.defaultCenter().addObserverForName(name,
             object: nil,
             queue: nil,
@@ -45,10 +35,6 @@ class RadioCell: UITableViewCell {
                 let sender = notification.object as! RadioCell
                 
                 if sender != self {
-//                    if isChecked {
-//                        self.setImage(UIImage(named: "checkbox_checked"), forState: UIControlState.Normal)
-//                    } else {
-//                    }
                     self.checkboxImage.image = UIImage(named: "checkbox_unchecked")
                 }
             }
@@ -67,12 +53,6 @@ class RadioCell: UITableViewCell {
         NSNotificationCenter.defaultCenter().postNotificationName(radioGroupName!, object: self)
         setCheckbox(true)
     }
-    
-//    func radioButton(checkbox: RadioButton, didChangeValue value: Bool) {
-//        if let radioGroupName = radioGroupName {
-//            NSNotificationCenter.defaultCenter().postNotificationName(radioGroupName, object: self)
-//        }
-//    }
     
     private func unsubscribe() {
         NSNotificationCenter.defaultCenter().removeObserver(self)// , name: radioGroupName, object: nil)

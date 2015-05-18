@@ -15,10 +15,10 @@ enum YelpSortMode: Int {
 
 class YelpClient {
 
-    let consumerKey: String
-    let consumerSecret: String
-    let token: String
-    let tokenSecret: String
+    private let consumerKey: String
+    private let consumerSecret: String
+    private let token: String
+    private let tokenSecret: String
 
     private struct Instance {
         static let client = YelpClient()

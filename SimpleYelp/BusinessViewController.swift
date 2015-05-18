@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class BusinessViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate {
+class BusinessViewController: UIViewController, FiltersViewControllerDelegate {
 
     private var searchFilters = YelpSearchFilters()
     private var searchBar: UISearchBar!
@@ -49,45 +49,9 @@ class BusinessViewController: UIViewController, UITableViewDataSource, UITableVi
         
         mapView.hidden = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if businesses != nil {
-            if totalBusinesses == businesses!.count {
-                return businesses!.count
-            }
-            return businesses!.count + 1
-        } else {
-            return 1
-        }
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let businessCount = businesses?.count ?? 0
-        if indexPath.row < businessCount {
-            let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessCell
-            cell.business = businesses[indexPath.row]
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("LoadingCell", forIndexPath: indexPath) as! LoadingCell
-            return cell
-        }
-    }
-    
-    // Infinite scrolling
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let businessCount = businesses?.count ?? 0
-        if indexPath.row == businessCount {
-            doSearch(offset: businessCount)
-        }
-    }
-    
-    func doSearch(offset: Int = 0) {
-        if offset == 0 {
+    private func doSearch(offset: Int = 0) {
+        if offset == 0 && businesses?.count > 0 {
             tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: true)
         }
         
@@ -102,8 +66,20 @@ class BusinessViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.businesses = self.businesses + businesses
                     
                     var indexPaths = [NSIndexPath]()
-                    for i in 1...additionalRows {
-                        indexPaths.append(NSIndexPath(forRow: self.businesses.count - i, inSection: 0))
+
+                    if self.businesses.count == self.totalBusinesses {
+                        if additionalRows > 1 {
+                            for i in 2...additionalRows {
+                                indexPaths.append(NSIndexPath(forRow: self.businesses.count - i, inSection: 0))
+                            }
+                        } else {
+                            // only 1 new row, need to replace the loading row
+                            self.tableView.reloadData()
+                        }
+                    } else {
+                        for i in 1...additionalRows {
+                            indexPaths.append(NSIndexPath(forRow: self.businesses.count - i, inSection: 0))
+                        }
                     }
                     
                     self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Fade)
@@ -136,20 +112,19 @@ class BusinessViewController: UIViewController, UITableViewDataSource, UITableVi
         doSearch()
     }
 
-    func centerMap() {
+    private func centerMap() {
         let location = CLLocation(latitude: searchFilters.latitude(), longitude: searchFilters.longitude())
         var diameter = Double(searchFilters.distance().api() * 2)
 
         if diameter == 0 {
             // Auto distance
-            diameter = 100000
+            diameter = 50000
         }
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, diameter, diameter)
         
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
 }
 
 extension BusinessViewController: UISearchBarDelegate {
@@ -175,3 +150,39 @@ extension BusinessViewController: UISearchBarDelegate {
     }
 }
 
+extension BusinessViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if businesses != nil {
+            if totalBusinesses == businesses!.count {
+                return businesses!.count
+            }
+            return businesses!.count + 1
+        } else {
+            return 1
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let businessCount = businesses?.count ?? 0
+        if indexPath.row < businessCount {
+            let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessCell
+            cell.business = businesses[indexPath.row]
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("LoadingCell", forIndexPath: indexPath) as! LoadingCell
+            return cell
+        }
+    }
+    
+    // Infinite scrolling
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let businessCount = businesses?.count ?? 0
+        if indexPath.row == businessCount {
+            doSearch(offset: businessCount)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+}
