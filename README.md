@@ -44,4 +44,5 @@ Credits
 * [Alamofire](https://github.com/Alamofire/Alamofire)
 * [NounProject](https://thenounproject.com/)
    * [Arrow-Down Icon](https://thenounproject.com/term/arrow-down/11584/)
+* [Checkbox Icons](https://github.com/mancunianetz/Checkbox)
 * [Codepath ios_yelp_swift](https://github.com/codepath/ios_yelp_swift)
